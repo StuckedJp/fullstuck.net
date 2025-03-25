@@ -4,11 +4,13 @@ import { Certificate } from "aws-cdk-lib/aws-certificatemanager";
 import {
   AllowedMethods,
   Distribution,
+  HttpVersion,
+  PriceClass,
   SecurityPolicyProtocol,
   SSLMethod,
   ViewerProtocolPolicy,
 } from "aws-cdk-lib/aws-cloudfront";
-import { S3Origin } from "aws-cdk-lib/aws-cloudfront-origins";
+import { S3BucketOrigin, S3Origin } from "aws-cdk-lib/aws-cloudfront-origins";
 import { Bucket } from "aws-cdk-lib/aws-s3";
 import { Construct } from "constructs";
 
@@ -28,7 +30,7 @@ export class CloudFrontStack extends Construct {
 
     new Distribution(this, "blog-site-dist", {
       defaultBehavior: {
-        origin: new S3Origin(props.bucket),
+        origin: S3BucketOrigin.withOriginAccessControl(props.bucket),
         allowedMethods: AllowedMethods.ALLOW_GET_HEAD,
         viewerProtocolPolicy: ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
       },
@@ -37,9 +39,11 @@ export class CloudFrontStack extends Construct {
         "blog-site-cret",
         props.certificateArn
       ),
+      priceClass: PriceClass.PRICE_CLASS_200,
       domainNames: [props.fqdn],
       minimumProtocolVersion: SecurityPolicyProtocol.TLS_V1_2_2021,
-      sslSupportMethod: SSLMethod.SNI,
+      httpVersion: HttpVersion.HTTP2_AND_3,
+      defaultRootObject: "index.html",
     });
   }
 }

@@ -23,10 +23,7 @@ export class S3Stack extends Construct {
     this.contents = new Bucket(this, "blog-site-s3-contents", {
       bucketName: `${prefix}-${props.region}`,
       removalPolicy: RemovalPolicy.DESTROY,
-      websiteIndexDocument: "index.html",
-      websiteErrorDocument: "index.html",
-      publicReadAccess: true,
-      accessControl: BucketAccessControl.PUBLIC_READ,
+      blockPublicAccess: BlockPublicAccess.BLOCK_ALL,
     });
   }
 }
