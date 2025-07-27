@@ -13,7 +13,7 @@ export interface S3StackProps {
   fqdn: string;
 }
 
-export class S3Stack extends Construct {
+export class S3Construct extends Construct {
   public readonly contents: Bucket;
 
   constructor(scope: Construct, id: string, props: S3StackProps) {

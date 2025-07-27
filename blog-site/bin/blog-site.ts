@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import "source-map-support/register";
 import * as cdk from "aws-cdk-lib";
-import { BlogSiteStack } from "../lib/blog-site-stack";
+import { BlogSiteStack } from "../lib/blog-site.stack";
 
 require("dotenv").config();
 
