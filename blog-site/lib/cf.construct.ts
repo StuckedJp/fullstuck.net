@@ -22,7 +22,7 @@ export interface CloudFrontStackProps {
   bucket: Bucket;
 }
 
-export class CloudFrontStack extends Construct {
+export class CloudFrontConstruct extends Construct {
   public readonly contents: Bucket;
 
   constructor(scope: Construct, id: string, props: CloudFrontStackProps) {

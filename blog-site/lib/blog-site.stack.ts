@@ -1,11 +1,11 @@
 import * as cdk from "aws-cdk-lib";
 import { Construct } from "constructs";
-import { CloudFrontStack } from "./cf-stack";
-import { S3Stack } from "./s3-stack";
+import { CloudFrontConstruct } from "./cf.construct";
+import { S3Construct } from "./s3.construct";
 // import * as sqs from 'aws-cdk-lib/aws-sqs';
 
 export class BlogSiteStack extends cdk.Stack {
-  public readonly s3: S3Stack;
+  public readonly s3: S3Construct;
 
   constructor(scope: Construct, id: string, props: cdk.StackProps) {
     super(scope, id, props);
@@ -16,11 +16,11 @@ export class BlogSiteStack extends cdk.Stack {
     // const queue = new sqs.Queue(this, 'BlogSiteQueue', {
     //   visibilityTimeout: cdk.Duration.seconds(300)
     // });
-    this.s3 = new S3Stack(this, "blog-site-s3", {
+    this.s3 = new S3Construct(this, "blog-site-s3", {
       fqdn: process.env.FQDN!,
       region: props.env!.region!,
     });
-    new CloudFrontStack(this, "blog-site-cloud-front", {
+    new CloudFrontConstruct(this, "blog-site-cloud-front", {
       bucket: this.s3.contents,
       certificateArn: process.env.CERTIFICATE_ARN!,
       fqdn: process.env.FQDN!,
