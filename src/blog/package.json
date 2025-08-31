@@ -24,7 +24,6 @@
     "hexo-server": "^3.0.0"
   },
   "devDependencies": {
-    "hexo-deployer-aws-s3": "^1.1.1",
     "hexo-generator-robotstxt": "^0.2.0",
     "hexo-generator-seo-friendly-sitemap": "^0.2.1"
   }
