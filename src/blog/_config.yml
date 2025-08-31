@@ -107,7 +107,7 @@ deploy:
 robotstxt:
   useragent: "*"
   allow:
-  sitemap: /sitemap.xml
+  sitemap: https://blog.fullstuck.net/sitemap.xml
 
 # hexo-generator-seo-friendly-sitemap
 sitemap:
