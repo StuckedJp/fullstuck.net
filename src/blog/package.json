@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "new": "hexo new post",
-    "build": "hexo generate",
+    "build": "hexo clean && hexo generate",
     "clean": "hexo clean",
-    "deploy": "hexo generate && cd cdk && npm run deploy",
+    "deploy": "hexo clean && hexo generate && cd cdk && npm run deploy",
     "server": "hexo clean && hexo server"
   },
   "hexo": {
