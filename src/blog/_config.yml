@@ -95,14 +95,6 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: landscape
 
-# Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type: 'aws-s3'
-  region: 'us-east-1'
-  bucket: 'blog-fullstuck-net-us-east-1'
-  prefix: ''
-
 # hexo-generator-robotstxt
 robotstxt:
   useragent: "*"
