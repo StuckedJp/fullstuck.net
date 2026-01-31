@@ -15,6 +15,7 @@ import {
 import { S3BucketOrigin } from "aws-cdk-lib/aws-cloudfront-origins";
 import { Bucket } from "aws-cdk-lib/aws-s3";
 import { BucketDeployment, Source } from "aws-cdk-lib/aws-s3-deployment";
+import { Size } from "aws-cdk-lib";
 
 export interface CloudFrontStackProps {
   fqdn: string;
@@ -69,6 +70,7 @@ export class CloudFrontConstruct extends Construct {
       distribution,
       distributionPaths: ["/*"],
       memoryLimit: 10240,
+      ephemeralStorageSize: Size.gibibytes(10)
     });
   }
 }
