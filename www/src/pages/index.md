@@ -1,7 +1,7 @@
 ---
 layout: ../layouts/Layout.astro
 title: "FullStuck.net"
-date: "2026-07-24T00:00:00+09:00"
+date: "2026-07-24T15:52:39.552+09:00"
 description: "FullStuck について"
 ---
 
