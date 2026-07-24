@@ -62,7 +62,7 @@ export class CloudFrontConstruct extends Construct {
       httpVersion: HttpVersion.HTTP2_AND_3,
     });
     new BucketDeployment(this, "www-site-dist-deploy", {
-      sources: [Source.asset("../src")],
+      sources: [Source.asset("../dist")],
       destinationBucket: props.bucket,
       distribution,
       distributionPaths: ["/*"],
