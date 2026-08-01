@@ -106,7 +106,7 @@ theme: landscape
 # hexo-generator-robotstxt
 robotstxt:
   useragent: "*"
-  allow:
+  allow: "/"
   sitemap: https://blog.fullstuck.net/sitemap.xml
 
 # hexo-generator-seo-friendly-sitemap
