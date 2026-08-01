@@ -54,8 +54,10 @@ description: "FullStuck について"
   - Spring
   - Play Framework
   - Akka
-  - Angular (not JS)
+  - NestJS
   - ASP.NET
+  - Angular (not JS)
+  - Vue.js
   - AWS CDK
 - データベース
   - Oracle
